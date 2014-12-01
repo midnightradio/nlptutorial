@@ -21,7 +21,7 @@ def test_print(filename, prob_dict):
   """
   lambda_one  = .95
   lambda_unk  = 1-lambda_one
-  V, W, H, unk = 1**6, 0, 0, 0
+  V, W, H, unk = 10**6, .0, .0, 0
   word_generator = (word for line in io.open(filename) for word in chain(line.split(), ["</s>"])) 
   for word in word_generator:
     W += 1
