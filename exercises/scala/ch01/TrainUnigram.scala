@@ -16,13 +16,14 @@ object TrainUnigram extends App {
     }
   }
   val total_count = counter.valuesIterator.sum
-  // http://stackoverflow.com/a/3074156/1542390
   
+  
+  // http://stackoverflow.com/a/3074156/1542390
   try {
     val outs = new java.io.PrintStream(new java.io.File(ModelFile))
       
     TreeMap(counter.toArray:_*).foreach { case (word:String, count:Int) =>
-      Console.withOut(outs) { println(word + "\t" + count) }
+      Console.withOut(outs) { println(word + "\t" + count.toDouble / total_count) }
     }
   } catch {
     case e:Exception => println("Exception")
